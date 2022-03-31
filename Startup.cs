@@ -15,23 +15,24 @@ namespace Bowling
 {
     public class Startup
     {
+
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
 
             services.AddDbContext<BowlersDbContext>(options =>
-           {
-               options.UseMySql(Configuration["ConnectionStrings:BowlersDbConnection"]);
-           });
+            {
+                options.UseMySql(Configuration["ConnectionStrings:BowlersDbConnection"]);
+            });
 
+            //each http requesst getes its own repository object
             services.AddScoped<IBowlersRepository, EFBowlersRepository>();
         }
 
