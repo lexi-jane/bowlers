@@ -2,13 +2,18 @@
     ViewData["Title"] = "Home Page";
 }
 
+@*@model BowlersViewModel*@
 @model List<Bowler>
 
 <div class="text-center">
-    <h1 class="display-4">Bowlers</h1>
+    <h1 class="display-4">Bowler Contact Information</h1>
+    <h3>@Context.Request.Query["bowlingTeam"].ToString()</h3>
 </div>
-
-<table class="table table-sm table-striped table-bordered">
+<div>
+    <a href="/Home/CreateBowlerForm" class="btn btn-success">Create Bowler</a>
+</div>
+<br />
+<table class="table table-sm table-striped table-bordered table-hover">
     <thead>
         <tr>
             <th>Name</th>
@@ -20,28 +25,33 @@
             <th>State</th>
             <th>Zip Code</th>*@
             <th>Phone</th>
+            <th>Team</th>
+
         </tr>
     </thead>
     <tbody>
-        @foreach (var b in Model)
+        @foreach (Bowler b in Model)
+        @*@foreach (Bowler b in Model.Bowlers)*@
         {
         <tr>
             <td>@b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName</td>
 
             @*<td>@b.BowlerFirstName</td>
-            <td>@b.BowlerMiddleInit</td>
-            <td>@b.BowlerLastName</td>*@
+        <td>@b.BowlerMiddleInit</td>
+        <td>@b.BowlerLastName</td>*@
             <td>@b.BowlerAddress <br /> @b.BowlerCity, @b.BowlerState @b.BowlerZip</td>
             @*<td>@b.BowlerCity</td>
         <td>@b.BowlerState</td>
         <td>@b.BowlerZip</td>*@
             <td>@b.BowlerPhoneNumber</td>
+            <td>@b.Team.TeamName</td>
+
 
             <td>
-                <NavLink class="btn btn-warning btn-sm" href="#">Edit</NavLink>
+                <a class="btn btn-warning btn-sm" href="/Home/UpdateBowlerForm/@b.BowlerID">Edit</a>
             </td>
             <td>
-                <button class="btn btn-danger btn-sm">Delete</button>
+                <a class="btn btn-danger btn-sm" href="/Home/DeleteBowler/@b.BowlerID">Delete</a>
             </td>
 
             @*<td>
@@ -53,7 +63,7 @@
 
         </tr>
         }
-    </tbody>
+        </tbody>
 
 
-</table>
+        </table>

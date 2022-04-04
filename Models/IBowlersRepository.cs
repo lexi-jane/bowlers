@@ -7,5 +7,9 @@ namespace Bowling.Models
     public interface IBowlersRepository
     {
         IQueryable<Bowler> Bowlers { get; }
+
+        Bowler CreateBowler(Bowler bowler);
+        Bowler UpdateBowler(Bowler bowler);
+        void DeleteBowler(int id);
     }
 }

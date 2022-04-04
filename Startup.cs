@@ -33,7 +33,10 @@ namespace Bowling
             });
 
             //each http requesst getes its own repository object
+
+            //services.AddScoped<plug, applicance>();
             services.AddScoped<IBowlersRepository, EFBowlersRepository>();
+            services.AddScoped<ITeamsRepository, EFTeamsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

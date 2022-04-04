@@ -2,6 +2,7 @@
 using System.Linq;
 using Bowling.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bowling.Components
 {
@@ -16,11 +17,15 @@ namespace Bowling.Components
 
         public IViewComponentResult Invoke()
         {
-            var types = repo.Bowlers
-                .Select(x => x.TeamID)
+            ViewBag.SelectedTeams = RouteData?.Values["bowlingTeam"];
+
+            var teams = repo.Bowlers
+                .Include(b => b.Team)
+                .Select(b => b.Team.TeamName)
                 .Distinct()
-                .OrderBy(x => x);
-            return View();
+                .OrderBy(b => b);
+            return View(teams);
+
         }
     }
 }

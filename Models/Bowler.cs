@@ -1,12 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bowling.Models
 {
     public class Bowler
     {
-        [Key]
-        [Required]
         public int BowlerID { get; set; }
 
         public string BowlerLastName { get; set; }
@@ -26,7 +25,7 @@ namespace Bowling.Models
         public string BowlerPhoneNumber { get; set; }
 
         public int TeamID { get; set; }
-
+        public Team Team { get; set; }
 
     }
 }
