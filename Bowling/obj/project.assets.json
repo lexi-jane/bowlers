@@ -1329,11 +1329,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alexisjane/BYU/IS Core/IS 413/Bowling/Bowling/Bowling.csproj",
+      "projectUniqueName": "/Users/alexisjane/Documents/GitHub/bowlers/Bowling/Bowling.csproj",
       "projectName": "Bowling",
-      "projectPath": "/Users/alexisjane/BYU/IS Core/IS 413/Bowling/Bowling/Bowling.csproj",
+      "projectPath": "/Users/alexisjane/Documents/GitHub/bowlers/Bowling/Bowling.csproj",
       "packagesPath": "/Users/alexisjane/.nuget/packages/",
-      "outputPath": "/Users/alexisjane/BYU/IS Core/IS 413/Bowling/Bowling/obj/",
+      "outputPath": "/Users/alexisjane/Documents/GitHub/bowlers/Bowling/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/alexisjane/.config/NuGet/NuGet.Config"
